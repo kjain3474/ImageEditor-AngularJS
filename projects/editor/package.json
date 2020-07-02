@@ -1,0 +1,25 @@
+{
+  "name": "editor",
+  "version": "0.0.1",
+  "desription": "",
+  "dependencies": {
+    "fabric": "^3.6.3",
+    "@types/fabric": "^3.6.2"
+  },
+  "peerDependencies": {
+    "@angular/common": "^9.0.7",
+    "@angular/core": "^9.0.7",
+    "tslib": "^1.10.0"
+  },
+  "ngPackage": {
+    "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+    "lib": {
+      "entryFile": "src/public-api.ts"
+    },
+    "dest": "../../dist/editor",
+    "whitelistedNonPeerDependencies": [
+      "fabric",
+      "@types/fabric"
+    ]
+  }
+}

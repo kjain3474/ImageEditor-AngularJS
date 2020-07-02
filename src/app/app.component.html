@@ -1,0 +1,95 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4 main-title">
+            <h2>Image Editor</h2>
+        </div>
+        <div class="col-lg-8">
+            <div class="row">
+                <div class="col-xl-12 text-right main-title">
+                    <button data-toggle="tooltip" data-placement="bottom" title="Clean Canvas" type="button" class="btn btn-danger" (click)="confirmClear();">
+                        <i class="fa fa-ban" aria-hidden="true"></i> Clean</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  <hr>
+  <div class="row">
+      <div class="col-xl-3">
+          <div class="card">
+              <div class="card-header">Aspect Ratio</div>
+              <div class="card-body">
+                  <div class="form-group">
+                      <div class="input-group">
+                        <select class="form-control" (change)="canvasRatio($event.target.value)">
+                            <option value="1" selected="">9 : 16</option>
+                            <option value="2" >16 : 9</option>
+                        </select>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <br/>
+          <div class="card">
+              <div class="card-header">Add text</div>
+              <div class="card-body">
+                  <div class="input-group">
+                      <input type="text" class="form-control" [(ngModel)]="canvas.textString">
+                      <div class="input-group-append">
+                            <button id="add-text" data-toggle="tooltip" data-placement="bottom" title="Add text" class="btn btn-primary green" (click)="addText()">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <br/>
+          <div class="card">
+              <div class="card-header">Add images</div>
+              <div class="card-body max-height imgloader" (scroll)="onScroll($event)">
+                  <img *ngFor="let img of imgList" draggable="true" (ondragstart)="drag($event)" class="images-item" src={{img.download_url}} >
+              </div>
+          </div>
+          <br/>
+      </div>
+      <div class="col-xl-6">
+          <editor #canvas></editor>
+      </div>
+      <div class="col-xl-3">
+          <div class="card">
+              <div class="card-header">Options</div>
+              <div class="card-body text-center">
+                  <div class="btn-group" role="group" aria-label="...">
+                      <button data-toggle="tooltip" data-placement="bottom" title="Delete element" type="button" class="btn btn-outline-danger" [disabled]="!canvas.selected"
+                          (click)="removeSelected();">
+                          <i class="fa fa-trash" aria-hidden="true"></i>
+                      </button>
+                      <button data-toggle="tooltip" data-placement="bottom" title="Send to back" type="button" class="btn btn-outline-primary" [disabled]="!canvas.selected"
+                          (click)="sendToBack();">
+                          <i class="fa fa-level-down" aria-hidden="true"></i>
+                      </button>
+                      <button data-toggle="tooltip" data-placement="bottom" title="Send to front" type="button" class="btn btn-outline-primary" [disabled]="!canvas.selected"
+                          (click)="bringToFront();">
+                          <i class="fa fa-level-up" aria-hidden="true"></i>
+                      </button>
+                      <button data-toggle="tooltip" data-placement="bottom" title="Clone" type="button" class="btn btn-outline-primary" [disabled]="!canvas.selected || canvas.selected.type == 'group'"
+                          (click)="clone();">
+                          <i class="fa fa-clone" aria-hidden="true"></i>
+                      </button>
+                      <button data-toggle="tooltip" data-placement="bottom" title="Unselect" type="button" class="btn btn-outline-primary" [disabled]="!canvas.selected"
+                          (click)="cleanSelect()">
+                          <i class="fa fa-remove" aria-hidden="true"></i>
+                      </button>
+                      <button data-toggle="tooltip" data-placement="bottom" title="Crop" type="button" class="btn btn-outline-primary" [disabled]="!canvas.selected"
+                      (click)="cropImage()">
+                      <i class="fa fa-crop" aria-hidden="true"></i>
+                      </button>
+                  </div>
+              </div>
+          </div>
+          <br/>
+
+      </div>
+  </div>
+  <br>
+  <br>
+</div>
