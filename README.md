@@ -1,9 +1,10 @@
-# Image Editor
+# Image Editor-AngularJS
+Angular App for Image editing supporting features of Fabric.js and HTML5 Canvas Library 
 
 ## Installing the project
 
 ```bash
-git clone https://github.com/kjain3474/ImageEditor.git
+git clone https://github.com/kjain3474/ImageEditor-AngularJS.git
 cd ImageEditor
 npm install
 ```
