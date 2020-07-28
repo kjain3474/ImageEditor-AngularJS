@@ -1,5 +1,6 @@
 # Image Editor-AngularJS
-Angular App for Image editing supporting features of Fabric.js and HTML5 Canvas Library 
+Angular App for Image editing supporting features of Fabric.js and HTML5 Canvas Library.
+Supports Drag and Drop functionality for Images along with multiple Aspect Ratio for Canvas and Text Addition Feature. 
 
 ## Installing the project
 
